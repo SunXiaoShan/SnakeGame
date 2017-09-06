@@ -19,6 +19,10 @@
 		8F1293F41F5E9BEE0058845E /* SnakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1293F31F5E9BEE0058845E /* SnakeUITests.m */; };
 		8F1294041F5E9CA20058845E /* SnakeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1294031F5E9CA20058845E /* SnakeManager.m */; };
 		8F1294081F5E9CEB0058845E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1294071F5E9CEB0058845E /* Utils.m */; };
+		8FEA2D9F1F5F70E1005BBCBE /* Snake.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2D9E1F5F70E1005BBCBE /* Snake.m */; };
+		8FEA2DA41F5F7488005BBCBE /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA31F5F7488005BBCBE /* Fruit.m */; };
+		8FEA2DAA1F5F7C8B005BBCBE /* SnakePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */; };
+		8FEA2DAD1F60006B005BBCBE /* SnakeObjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */; };
 		AF9556A20D54034D20758FFA /* libPods-SnakeUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0960FEF662F6B9E457013361 /* libPods-SnakeUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +73,14 @@
 		8F1294031F5E9CA20058845E /* SnakeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeManager.m; sourceTree = "<group>"; };
 		8F1294061F5E9CEB0058845E /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		8F1294071F5E9CEB0058845E /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		8FEA2D9D1F5F70E1005BBCBE /* Snake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
+		8FEA2D9E1F5F70E1005BBCBE /* Snake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
+		8FEA2DA11F5F71EA005BBCBE /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		8FEA2DA21F5F7488005BBCBE /* Fruit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fruit.h; sourceTree = "<group>"; };
+		8FEA2DA31F5F7488005BBCBE /* Fruit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fruit.m; sourceTree = "<group>"; };
+		8FEA2DA81F5F7C8B005BBCBE /* SnakePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnakePoint.h; sourceTree = "<group>"; };
+		8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakePoint.m; sourceTree = "<group>"; };
+		8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeObjTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +160,7 @@
 				8F1293DA1F5E9BEE0058845E /* LaunchScreen.storyboard */,
 				8F1293DD1F5E9BEE0058845E /* Info.plist */,
 				8F1293DE1F5E9BEE0058845E /* main.m */,
+				8FEA2DA11F5F71EA005BBCBE /* Prefix.pch */,
 			);
 			path = Snake;
 			sourceTree = "<group>";
@@ -156,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8F1293E81F5E9BEE0058845E /* SnakeTests.m */,
+				8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */,
 				8F1293EA1F5E9BEE0058845E /* Info.plist */,
 			);
 			path = SnakeTests;
@@ -175,6 +189,12 @@
 			children = (
 				8F1294021F5E9CA20058845E /* SnakeManager.h */,
 				8F1294031F5E9CA20058845E /* SnakeManager.m */,
+				8FEA2D9D1F5F70E1005BBCBE /* Snake.h */,
+				8FEA2D9E1F5F70E1005BBCBE /* Snake.m */,
+				8FEA2DA21F5F7488005BBCBE /* Fruit.h */,
+				8FEA2DA31F5F7488005BBCBE /* Fruit.m */,
+				8FEA2DA81F5F7C8B005BBCBE /* SnakePoint.h */,
+				8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */,
 			);
 			path = SnakeManager;
 			sourceTree = "<group>";
@@ -484,7 +504,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FEA2DA41F5F7488005BBCBE /* Fruit.m in Sources */,
+				8FEA2D9F1F5F70E1005BBCBE /* Snake.m in Sources */,
 				8F1293D41F5E9BEE0058845E /* ViewController.m in Sources */,
+				8FEA2DAA1F5F7C8B005BBCBE /* SnakePoint.m in Sources */,
 				8F1293DF1F5E9BEE0058845E /* main.m in Sources */,
 				8F1294041F5E9CA20058845E /* SnakeManager.m in Sources */,
 				8F1294081F5E9CEB0058845E /* Utils.m in Sources */,
@@ -496,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FEA2DAD1F60006B005BBCBE /* SnakeObjTests.m in Sources */,
 				8F1293E91F5E9BEE0058845E /* SnakeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YXTP59538K;
+				GCC_PREFIX_HEADER = Snake/Prefix.pch;
 				INFOPLIST_FILE = Snake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.Snake;
@@ -667,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YXTP59538K;
+				GCC_PREFIX_HEADER = Snake/Prefix.pch;
 				INFOPLIST_FILE = Snake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.Snake;

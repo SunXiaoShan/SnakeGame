@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+enum Direction {
+    DIR_UP,
+    DIR_DOWN,
+    DIR_LEFT,
+    DIR_RIGHT,
+    DIR_STOP,
+};
+
 @interface Utils : NSObject
 
-+ (void) performInMainThread:(void (^)()) block;
-+ (void) performInBackground:(NSString *) identifier executeBlock:(void (^)()) block;
++ (void)performInMainThread:(void (^)())block;
 
 @end

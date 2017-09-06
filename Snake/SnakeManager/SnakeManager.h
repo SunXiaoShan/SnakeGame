@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SnakeManagerDelegate<NSObject>
+- (void)resetFruit;
+- (void)fruitIsEaten;
+- (void)gameOver;
+- (void)resetGame;
+@end
+
 @interface SnakeManager : NSObject
 
 + (SnakeManager *)getInstance;
+@property  (nonatomic, retain) id<SnakeManagerDelegate> delegate;
 
 @end

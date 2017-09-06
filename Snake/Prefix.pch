@@ -1,0 +1,16 @@
+//
+//  Prefix.pch
+//  Snake
+//
+//  Created by Phineas_Huang on 06/09/2017.
+//  Copyright © 2017 SunXiaoShan. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+
+#import "Utils/Utils.h"
+#endif
