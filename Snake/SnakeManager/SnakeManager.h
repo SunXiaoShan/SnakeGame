@@ -13,11 +13,13 @@
 - (void)fruitIsEaten;
 - (void)gameOver;
 - (void)resetGame;
+- (void)refreshView;
 @end
 
 @interface SnakeManager : NSObject
 
 + (SnakeManager *)getInstance;
 @property  (nonatomic, retain) id<SnakeManagerDelegate> delegate;
+- (void)changeDirection:(enum Direction)dir;
 
 @end

@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SnakePoint.h"
+#import "BaseNode.h"
 
-@interface Fruit : NSObject
-
-@property  (nonatomic, retain) SnakePoint *point;
+@interface Fruit : BaseNode
 
 - (void)setEatenState:(BOOL)isEaten;
 - (BOOL)isEaten;

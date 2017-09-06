@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SnakePoint.h"
+#import "BaseNode.h"
 
-@interface Snake : NSObject
+@interface Snake : BaseNode
 @property  (nonatomic) enum Direction dir;
-@property  (nonatomic, retain) SnakePoint *point;
 
 - (id)init:(int)_x y:(int)_y;
 

@@ -23,6 +23,10 @@
 		8FEA2DA41F5F7488005BBCBE /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA31F5F7488005BBCBE /* Fruit.m */; };
 		8FEA2DAA1F5F7C8B005BBCBE /* SnakePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */; };
 		8FEA2DAD1F60006B005BBCBE /* SnakeObjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */; };
+		8FEA2DB21F604F75005BBCBE /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DB11F604F75005BBCBE /* BaseView.m */; };
+		8FEA2DB81F605BAC005BBCBE /* BaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DB71F605BAC005BBCBE /* BaseNode.m */; };
+		8FEA2DBB1F60638C005BBCBE /* SnakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DBA1F60638C005BBCBE /* SnakeView.m */; };
+		8FEA2DBE1F60639D005BBCBE /* FruitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DBD1F60639C005BBCBE /* FruitView.m */; };
 		AF9556A20D54034D20758FFA /* libPods-SnakeUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0960FEF662F6B9E457013361 /* libPods-SnakeUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +85,14 @@
 		8FEA2DA81F5F7C8B005BBCBE /* SnakePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnakePoint.h; sourceTree = "<group>"; };
 		8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakePoint.m; sourceTree = "<group>"; };
 		8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeObjTests.m; sourceTree = "<group>"; };
+		8FEA2DB01F604F75005BBCBE /* BaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		8FEA2DB11F604F75005BBCBE /* BaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		8FEA2DB61F605BAC005BBCBE /* BaseNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNode.h; sourceTree = "<group>"; };
+		8FEA2DB71F605BAC005BBCBE /* BaseNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNode.m; sourceTree = "<group>"; };
+		8FEA2DB91F60638C005BBCBE /* SnakeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnakeView.h; sourceTree = "<group>"; };
+		8FEA2DBA1F60638C005BBCBE /* SnakeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeView.m; sourceTree = "<group>"; };
+		8FEA2DBC1F60639C005BBCBE /* FruitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FruitView.h; sourceTree = "<group>"; };
+		8FEA2DBD1F60639C005BBCBE /* FruitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				8F1294051F5E9CD60058845E /* Utils */,
+				8FEA2DAF1F604C52005BBCBE /* SnakeViews */,
 				8F1294011F5E9C840058845E /* SnakeManager */,
 				8F1293CF1F5E9BEE0058845E /* AppDelegate.h */,
 				8F1293D01F5E9BEE0058845E /* AppDelegate.m */,
@@ -195,6 +208,8 @@
 				8FEA2DA31F5F7488005BBCBE /* Fruit.m */,
 				8FEA2DA81F5F7C8B005BBCBE /* SnakePoint.h */,
 				8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */,
+				8FEA2DB61F605BAC005BBCBE /* BaseNode.h */,
+				8FEA2DB71F605BAC005BBCBE /* BaseNode.m */,
 			);
 			path = SnakeManager;
 			sourceTree = "<group>";
@@ -206,6 +221,19 @@
 				8F1294071F5E9CEB0058845E /* Utils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8FEA2DAF1F604C52005BBCBE /* SnakeViews */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA2DB01F604F75005BBCBE /* BaseView.h */,
+				8FEA2DB11F604F75005BBCBE /* BaseView.m */,
+				8FEA2DB91F60638C005BBCBE /* SnakeView.h */,
+				8FEA2DBA1F60638C005BBCBE /* SnakeView.m */,
+				8FEA2DBC1F60639C005BBCBE /* FruitView.h */,
+				8FEA2DBD1F60639C005BBCBE /* FruitView.m */,
+			);
+			path = SnakeViews;
 			sourceTree = "<group>";
 		};
 		D80900AC5313499A486F71E1 /* Frameworks */ = {
@@ -506,7 +534,11 @@
 			files = (
 				8FEA2DA41F5F7488005BBCBE /* Fruit.m in Sources */,
 				8FEA2D9F1F5F70E1005BBCBE /* Snake.m in Sources */,
+				8FEA2DB81F605BAC005BBCBE /* BaseNode.m in Sources */,
+				8FEA2DBE1F60639D005BBCBE /* FruitView.m in Sources */,
+				8FEA2DB21F604F75005BBCBE /* BaseView.m in Sources */,
 				8F1293D41F5E9BEE0058845E /* ViewController.m in Sources */,
+				8FEA2DBB1F60638C005BBCBE /* SnakeView.m in Sources */,
 				8FEA2DAA1F5F7C8B005BBCBE /* SnakePoint.m in Sources */,
 				8F1293DF1F5E9BEE0058845E /* main.m in Sources */,
 				8F1294041F5E9CA20058845E /* SnakeManager.m in Sources */,

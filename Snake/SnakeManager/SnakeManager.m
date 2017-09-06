@@ -14,6 +14,8 @@
 #define DefaultPositionX 100
 #define DefaultPositionY 200
 
+#define TAG @"Manager"
+
 @interface SnakeManager()
 @property  (nonatomic, retain) Snake *snakeList;
 @property  (nonatomic, retain) Fruit *fruit;
@@ -23,7 +25,6 @@
 @implementation SnakeManager
 
 static SnakeManager *instance;
-
 
 + (SnakeManager *)getInstance {
     static dispatch_once_t token;
@@ -122,6 +123,10 @@ static SnakeManager *instance;
             return;
     }
     [self shiftSnake:x y:y];
+    
+    [Utils performInMainThread:^{
+        [self.delegate refreshView];
+    }];
 }
 
 - (BOOL)checkValidSnake {
@@ -178,13 +183,12 @@ static SnakeManager *instance;
 }
 
 - (void)routineTask {
-
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, backgroundQueue);
     dispatch_source_set_timer(self.timerSource, dispatch_time(DISPATCH_TIME_NOW, 0), 0.5*NSEC_PER_SEC, 0*NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.timerSource, ^{
         // TODO
-        NSLog(@"routin ....");
+        [self log:@"routine"];
         [self updateSnake];
     });
     dispatch_resume(self.timerSource);
@@ -212,11 +216,16 @@ static SnakeManager *instance;
 }
 
 - (void)debugLog {
-    [self showSlidePath:self.snakeList];
+   [self showSlidePath:self.snakeList];
 }
 
 - (void)showSlidePath:(Snake *)node {
-    NSLog(@"node: x:%d y:%d", node.point.x, node.point.y);
+    
+    [self log:[NSString stringWithFormat:@"node: x:%d y:%d", node.point.x, node.point.y]];
+}
+
+- (void)log:(NSString *)context {
+    NSLog(@"%@ : %@", TAG, context);
 }
 
 @end
