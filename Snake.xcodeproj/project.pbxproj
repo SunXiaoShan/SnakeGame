@@ -19,6 +19,10 @@
 		8F1293F41F5E9BEE0058845E /* SnakeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1293F31F5E9BEE0058845E /* SnakeUITests.m */; };
 		8F1294041F5E9CA20058845E /* SnakeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1294031F5E9CA20058845E /* SnakeManager.m */; };
 		8F1294081F5E9CEB0058845E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1294071F5E9CEB0058845E /* Utils.m */; };
+		8FD1AE301F61352000F75E35 /* FruitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1AE2F1F61352000F75E35 /* FruitTests.m */; };
+		8FD1AE321F61361000F75E35 /* UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1AE311F61361000F75E35 /* UtilsTests.m */; };
+		8FD1AE341F6136A000F75E35 /* SnakePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1AE331F6136A000F75E35 /* SnakePointTests.m */; };
+		8FD1AE361F61376F00F75E35 /* SnakeManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1AE351F61376F00F75E35 /* SnakeManagerTests.m */; };
 		8FEA2D9F1F5F70E1005BBCBE /* Snake.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2D9E1F5F70E1005BBCBE /* Snake.m */; };
 		8FEA2DA41F5F7488005BBCBE /* Fruit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA31F5F7488005BBCBE /* Fruit.m */; };
 		8FEA2DAA1F5F7C8B005BBCBE /* SnakePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA2DA91F5F7C8B005BBCBE /* SnakePoint.m */; };
@@ -74,6 +78,10 @@
 		8F1294031F5E9CA20058845E /* SnakeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeManager.m; sourceTree = "<group>"; };
 		8F1294061F5E9CEB0058845E /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		8F1294071F5E9CEB0058845E /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		8FD1AE2F1F61352000F75E35 /* FruitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitTests.m; sourceTree = "<group>"; };
+		8FD1AE311F61361000F75E35 /* UtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UtilsTests.m; sourceTree = "<group>"; };
+		8FD1AE331F6136A000F75E35 /* SnakePointTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakePointTests.m; sourceTree = "<group>"; };
+		8FD1AE351F61376F00F75E35 /* SnakeManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeManagerTests.m; sourceTree = "<group>"; };
 		8FEA2D9D1F5F70E1005BBCBE /* Snake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
 		8FEA2D9E1F5F70E1005BBCBE /* Snake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
 		8FEA2DA11F5F71EA005BBCBE /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -173,7 +181,11 @@
 			children = (
 				8F1293E81F5E9BEE0058845E /* SnakeTests.m */,
 				8FEA2DAC1F60006B005BBCBE /* SnakeObjTests.m */,
+				8FD1AE2F1F61352000F75E35 /* FruitTests.m */,
 				8F1293EA1F5E9BEE0058845E /* Info.plist */,
+				8FD1AE311F61361000F75E35 /* UtilsTests.m */,
+				8FD1AE331F6136A000F75E35 /* SnakePointTests.m */,
+				8FD1AE351F61376F00F75E35 /* SnakeManagerTests.m */,
 			);
 			path = SnakeTests;
 			sourceTree = "<group>";
@@ -525,8 +537,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD1AE361F61376F00F75E35 /* SnakeManagerTests.m in Sources */,
+				8FD1AE301F61352000F75E35 /* FruitTests.m in Sources */,
 				8FEA2DAD1F60006B005BBCBE /* SnakeObjTests.m in Sources */,
 				8F1293E91F5E9BEE0058845E /* SnakeTests.m in Sources */,
+				8FD1AE321F61361000F75E35 /* UtilsTests.m in Sources */,
+				8FD1AE341F6136A000F75E35 /* SnakePointTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +728,7 @@
 			baseConfigurationReference = 13EB441992AAB141673B77A6 /* Pods-SnakeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YXTP59538K;
 				INFOPLIST_FILE = SnakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.SnakeTests;
@@ -726,6 +743,7 @@
 			baseConfigurationReference = 1F7A6D64318C500CD13B0166 /* Pods-SnakeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YXTP59538K;
 				INFOPLIST_FILE = SnakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.SnakeTests;
@@ -739,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 315E48B73FC0FA4A06A9B69C /* Pods-SnakeUITests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = YXTP59538K;
 				INFOPLIST_FILE = SnakeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.SnakeUITests;
@@ -752,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 628451C18F845F93A859606B /* Pods-SnakeUITests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = YXTP59538K;
 				INFOPLIST_FILE = SnakeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.Pphineas.SnakeUITests;

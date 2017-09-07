@@ -30,4 +30,8 @@
 - (void)resetSnakeData;
 - (void)startGame;
 
+// for test
+- (void)injectSnake:(Snake *)snake;
+- (void)injectFruit:(Fruit *)fruit;
+
 @end

@@ -262,4 +262,12 @@ static SnakeManager *instance;
     NSLog(@"%@ : %@", TAG, context);
 }
 
+- (void)injectSnake:(Snake *)snake {
+    self.snakeList = snake;
+}
+
+- (void)injectFruit:(Fruit *)fruit {
+    self.fruit = fruit;
+}
+
 @end
