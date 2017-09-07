@@ -12,5 +12,6 @@
     <br/>
     <br/>
     <br/>
-       
+      
+## Demo
 ![](https://github.com/SunXiaoShan/SnakeGame/blob/master/demo/output.gif)
