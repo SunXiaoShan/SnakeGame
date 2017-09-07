@@ -9,9 +9,5 @@
     * 移動範圍為整個螢幕   
     * Model testing (XCTesting)  
     <br/>
-    <br/>
-    <br/>
-    <br/>
-      
 ## Demo
 ![](https://github.com/SunXiaoShan/SnakeGame/blob/master/demo/output.gif)
