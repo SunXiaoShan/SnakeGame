@@ -48,8 +48,14 @@ static SnakeManager *instance;
     [self.delegate resetGame];
 }
 
+- (void)startGame {
+    Snake *snake = self.snakeList;
+    [snake setDir:DIR_LEFT];
+}
+
 - (void)setupSnake {
     Snake *first = [[Snake alloc] init:DefaultPositionX y:DefaultPositionY];
+    [first setDir:DIR_STOP];
     Snake *second = [[Snake alloc] init];
     [second setPoint:[self getNextPosition:first.dir node:first]];
     [first setNextNode:second];
@@ -128,7 +134,26 @@ static SnakeManager *instance;
 }
 
 - (BOOL)checkValidSnake {
-    // TODO check valid
+    // check bound
+    int w = [UIScreen mainScreen].bounds.size.width;
+    int h = [UIScreen mainScreen].bounds.size.height;
+    Snake *snake = self.snakeList;
+    if (snake.point.x <0 || snake.point.x > w) {
+        return NO;
+    }
+    if (snake.point.y <0 || snake.point.y > h) {
+        return NO;
+    }
+    
+    Snake *buff = [snake getNext];
+    while (buff != nil) {
+        if (snake.point.x == buff.point.x && snake.point.y == buff.point.y) {
+            return NO;
+        }
+        
+        buff = [buff getNext];
+    }
+    
     return YES;
 }
 
@@ -151,8 +176,8 @@ static SnakeManager *instance;
 - (void)resetFruitState {
     if (NO == [self.fruit isEaten]) { return; }
     
-    int w = [UIScreen mainScreen].applicationFrame.size.width;
-    int h = [UIScreen mainScreen].applicationFrame.size.height;
+    int w = [UIScreen mainScreen].bounds.size.width;
+    int h = [UIScreen mainScreen].bounds.size.height;
     
     int randomX = arc4random() % w;
     int randomY = arc4random() % h;
@@ -218,6 +243,11 @@ static SnakeManager *instance;
 - (void)changeDirection:(enum Direction)dir {
     Snake *snake = self.snakeList;
     [snake changeDirection:dir];
+}
+
+- (enum Direction)getDir {
+    Snake *snake = self.snakeList;
+    return snake.dir;
 }
 
 - (void)debugLog {

@@ -23,25 +23,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     [SnakeManager getInstance].delegate = self;
     [self setupGesture];
-    
-    [self.btnSetup setHidden:YES];
-//    BaseView *v = [[SnakeView alloc] initWithFrame:CGRectMake(100, 100, 20, 20)];
-//    [self.view addSubview:v];
-    
-   // BaseView *v1 = [[BaseView alloc] initWithFrame:CGRectMake(100, 150, 20, 20)];
-    //[self.view addSubview:v1];
-    
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
-    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
-    [circleLayer setFillColor:[[UIColor redColor] CGColor]];
-    [[self.view layer] addSublayer:circleLayer];
-    
-    for (id layer in self.view.layer.sublayers) {
-        if ([layer isKindOfClass:[CAShapeLayer class]]) {
-            [layer removeFromSuperlayer];
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +42,8 @@
     UIButton *btn = sender;
     [btn setTitle:BUTTON_TITLE forState:UIControlStateNormal];
     [btn setHidden:YES];
-    
+    [[SnakeManager getInstance] resetSnakeData];
+    [[SnakeManager getInstance] startGame];
 }
 
 - (void)removeView {
@@ -121,7 +103,7 @@
 }
 
 - (void)gameOver {
-    
+    [self.btnSetup setHidden:NO];
 }
 
 - (void)resetGame {
@@ -133,8 +115,6 @@
     [self drawSnake];
     [self drawFruit];
 }
-
-
 
 - (void)pan:(UIPanGestureRecognizer *)sender {
     
@@ -210,26 +190,33 @@
         default:
             break;
     }
-    
 }
 
 - (void)handleUpwardsGesture:(UIPanGestureRecognizer *)sender {
     [self log:@"Up"];
+    if ([[SnakeManager getInstance] getDir] == DIR_DOWN) { return; }
+    if (NO == [self.btnSetup isHidden]) { return; }
     [[SnakeManager getInstance] changeDirection:DIR_UP];
 }
 
 - (void)handleDownwardsGesture:(UIPanGestureRecognizer *)sender {
     [self log:@"Down"];
+    if ([[SnakeManager getInstance] getDir] == DIR_UP) { return; }
+    if (NO == [self.btnSetup isHidden]) { return; }
     [[SnakeManager getInstance] changeDirection:DIR_DOWN];
 }
 
 - (void)handleLeftGesture:(UIPanGestureRecognizer *)sender {
     [self log:@"Left"];
+    if ([[SnakeManager getInstance] getDir] == DIR_RIGHT) { return; }
+    if (NO == [self.btnSetup isHidden]) { return; }
     [[SnakeManager getInstance] changeDirection:DIR_LEFT];
 }
 
 - (void)handleRightGesture:(UIPanGestureRecognizer *)sender {
     [self log:@"Right"];
+    if ([[SnakeManager getInstance] getDir] == DIR_LEFT) { return; }
+    if (NO == [self.btnSetup isHidden]) { return; }
     [[SnakeManager getInstance] changeDirection:DIR_RIGHT];
 }
 

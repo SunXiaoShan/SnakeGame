@@ -24,7 +24,10 @@
 + (SnakeManager *)getInstance;
 @property  (nonatomic, retain) id<SnakeManagerDelegate> delegate;
 - (void)changeDirection:(enum Direction)dir;
+- (enum Direction)getDir;
 - (Snake *)getSnake;
 - (Fruit *)getFruit;
+- (void)resetSnakeData;
+- (void)startGame;
 
 @end
