@@ -7,9 +7,6 @@
 //
 
 #import "SnakeManager.h"
-#import "Snake.h"
-#import "SnakePoint.h"
-#import "Fruit.h"
 
 #define DefaultPositionX 100
 #define DefaultPositionY 200
@@ -84,6 +81,7 @@ static SnakeManager *instance;
 
 - (void)setupFruit {
     self.fruit = [Fruit new];
+    [self.fruit setPoint:[[SnakePoint alloc] init:DefaultPositionX-20 y:DefaultPositionY]];
     [self resetFruitState];
 }
 
@@ -187,7 +185,6 @@ static SnakeManager *instance;
     self.timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, backgroundQueue);
     dispatch_source_set_timer(self.timerSource, dispatch_time(DISPATCH_TIME_NOW, 0), 0.5*NSEC_PER_SEC, 0*NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.timerSource, ^{
-        // TODO
         [self log:@"routine"];
         [self updateSnake];
     });
@@ -210,6 +207,14 @@ static SnakeManager *instance;
     [self debugLog];
 }
 
+- (Snake *)getSnake {
+    return self.snakeList;
+}
+
+- (Fruit *)getFruit {
+    return self.fruit;
+}
+
 - (void)changeDirection:(enum Direction)dir {
     Snake *snake = self.snakeList;
     [snake changeDirection:dir];
@@ -220,7 +225,6 @@ static SnakeManager *instance;
 }
 
 - (void)showSlidePath:(Snake *)node {
-    
     [self log:[NSString stringWithFormat:@"node: x:%d y:%d", node.point.x, node.point.y]];
 }
 

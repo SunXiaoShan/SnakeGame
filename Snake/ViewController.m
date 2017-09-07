@@ -9,9 +9,6 @@
 #import "ViewController.h"
 #import "SnakeManager.h"
 
-#import "FruitView.h"
-#import "SnakeView.h"
-
 #define BUTTON_TITLE @"Try again!"
 #define TAG @"ViewController"
 
@@ -28,9 +25,23 @@
     [self setupGesture];
     
     [self.btnSetup setHidden:YES];
+//    BaseView *v = [[SnakeView alloc] initWithFrame:CGRectMake(100, 100, 20, 20)];
+//    [self.view addSubview:v];
     
-    BaseView *v = [[FruitView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:v];
+   // BaseView *v1 = [[BaseView alloc] initWithFrame:CGRectMake(100, 150, 20, 20)];
+    //[self.view addSubview:v1];
+    
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 100, 100)] CGPath]];
+    [circleLayer setStrokeColor:[[UIColor redColor] CGColor]];
+    [circleLayer setFillColor:[[UIColor redColor] CGColor]];
+    [[self.view layer] addSublayer:circleLayer];
+    
+    for (id layer in self.view.layer.sublayers) {
+        if ([layer isKindOfClass:[CAShapeLayer class]]) {
+            [layer removeFromSuperlayer];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +64,54 @@
     
 }
 
+- (void)removeView {
+    [[self.view.layer.sublayers copy] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CALayer * subLayer = obj;
+        if ([subLayer isKindOfClass:[CAShapeLayer class]]) {
+            [subLayer removeFromSuperlayer];
+        }
+    }];
+}
+
+- (void)drawSnake {
+    Snake *snake = [[SnakeManager getInstance] getSnake];
+    while (snake != nil) {
+        int width = 10;
+        int height = 10;
+        int x = snake.point.x-width/2;
+        int y = snake.point.y-height/2;
+        
+        [self drawObj:CGRectMake(x, y, width, height) color:[UIColor blueColor]];
+        snake = [snake getNext];
+    }
+}
+
+- (void)drawFruit {
+    Fruit *fruit = [[SnakeManager getInstance] getFruit];
+    if (NO == [fruit isEaten]) {
+        int width = 10;
+        int height = 10;
+        int x = fruit.point.x-width/2;
+        int y = fruit.point.y-height/2;
+    
+        [self drawObj:CGRectMake(x, y, width, height) color:[UIColor redColor]];
+    }
+}
+
+- (void)drawObj:(CGRect)frame color:(UIColor *)color {
+    CGFloat x = frame.origin.x;
+    CGFloat y = frame.origin.y;
+    CGFloat rad = frame.size.width/2;
+    
+    CGColorRef colorRef = [color CGColor];
+    
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(x, y, rad, rad)] CGPath]];
+    [circleLayer setStrokeColor:colorRef];
+    [circleLayer setFillColor:colorRef];
+    [[self.view layer] addSublayer:circleLayer];
+}
+
 - (void)resetFruit {
     
 }
@@ -70,8 +129,12 @@
 }
 
 - (void)refreshView {
-   
+    [self removeView];
+    [self drawSnake];
+    [self drawFruit];
 }
+
+
 
 - (void)pan:(UIPanGestureRecognizer *)sender {
     
@@ -173,6 +236,5 @@
 - (void)log:(NSString *)context {
     NSLog(@"%@ : %@", TAG, context);
 }
-
 
 @end

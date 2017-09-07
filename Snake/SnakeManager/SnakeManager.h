@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Snake.h"
+#import "SnakePoint.h"
+#import "Fruit.h"
 
 @protocol SnakeManagerDelegate<NSObject>
 - (void)resetFruit;
@@ -21,5 +24,7 @@
 + (SnakeManager *)getInstance;
 @property  (nonatomic, retain) id<SnakeManagerDelegate> delegate;
 - (void)changeDirection:(enum Direction)dir;
+- (Snake *)getSnake;
+- (Fruit *)getFruit;
 
 @end
