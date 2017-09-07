@@ -11,6 +11,8 @@
 #define DefaultPositionX 100
 #define DefaultPositionY 200
 
+#define TIME 0.05 // sec
+
 #define TAG @"Manager"
 
 @interface SnakeManager()
@@ -168,6 +170,7 @@ static SnakeManager *instance;
     }
     
     Snake *snakeHead = [[Snake alloc] init:self.fruit.point.x y:self.fruit.point.y];
+    [snakeHead setDir:self.snakeList.dir];
     [snakeHead setNextNode:self.snakeList];
     self.snakeList = snakeHead;
     [self.fruit setEatenState:YES];
@@ -176,11 +179,11 @@ static SnakeManager *instance;
 - (void)resetFruitState {
     if (NO == [self.fruit isEaten]) { return; }
     
-    int w = [UIScreen mainScreen].bounds.size.width;
-    int h = [UIScreen mainScreen].bounds.size.height;
+    int w = 10;
+    int h = 10;
     
-    int randomX = arc4random() % w;
-    int randomY = arc4random() % h;
+    int randomX = arc4random() % w + self.snakeList.point.x - w/2;
+    int randomY = arc4random() % h + self.snakeList.point.y - h/2;
     
     BOOL isValid = YES;
     Snake *list = self.snakeList;
@@ -200,15 +203,13 @@ static SnakeManager *instance;
         [Utils performInMainThread:^{
             [self.delegate resetFruit]; // delegate
         }];
-    } else {
-        [self resetFruitState];
     }
 }
 
 - (void)routineTask {
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, backgroundQueue);
-    dispatch_source_set_timer(self.timerSource, dispatch_time(DISPATCH_TIME_NOW, 0), 0.5*NSEC_PER_SEC, 0*NSEC_PER_SEC);
+    dispatch_source_set_timer(self.timerSource, dispatch_time(DISPATCH_TIME_NOW, 0), TIME*NSEC_PER_SEC, 0*NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.timerSource, ^{
         [self log:@"routine"];
         [self updateSnake];
